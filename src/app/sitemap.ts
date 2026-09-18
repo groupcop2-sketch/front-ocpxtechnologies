@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/config/env";
 import { routes } from "@/config/site";
-import { projects } from "@/constants/projects";
+import { publishedProjects } from "@/constants/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
@@ -33,14 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const projectRoutes: MetadataRoute.Sitemap = projects
-    .filter((project) => !project.isPlaceholder)
-    .map((project) => ({
+  const projectRoutes: MetadataRoute.Sitemap = publishedProjects.map(
+    (project) => ({
       url: `${siteUrl}${routes.project(project.slug)}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
-    }));
+    }),
+  );
 
   return [...staticRoutes, ...projectRoutes];
 }

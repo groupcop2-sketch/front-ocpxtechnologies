@@ -174,9 +174,11 @@ export const contactContent = {
 export const projectsContent = {
   eyebrow: "Proyectos",
   title: "Casos de estudio",
-  lead: "Estamos documentando nuestros casos de forma rigurosa. No publicamos clientes, métricas ni resultados que no podamos verificar.",
+  lead: "Una selección de soluciones publicadas. Solo incluimos información verificable: sin métricas, testimonios ni resultados inventados.",
   placeholderNote:
     "Los siguientes bloques muestran la estructura con la que presentaremos cada caso. No representan clientes reales.",
+  liveLabel: "Ver proyecto",
+  caseLabel: "Ver caso",
   emptyCta: "Hablemos de un caso similar al tuyo",
 } as const;
 

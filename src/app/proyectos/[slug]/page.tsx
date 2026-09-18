@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { CtaLink } from "@/components/shared/CtaLink";
 import { getProjectBySlug, projects } from "@/constants/projects";
-import { cta } from "@/constants/content";
+import { cta, projectsContent } from "@/constants/content";
 import { routes } from "@/config/site";
 import { getBreadcrumbJsonLd, getWebPageJsonLd } from "@/lib/seo";
 
@@ -32,6 +34,11 @@ export async function generateMetadata({
     description: project.summary,
     robots: project.isPlaceholder ? { index: false, follow: true } : undefined,
     alternates: { canonical: routes.project(project.slug) },
+    openGraph: project.image
+      ? {
+          images: [{ url: project.image, alt: project.imageAlt ?? project.title }],
+        }
+      : undefined,
   };
 }
 
@@ -82,6 +89,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral">
           {project.summary}
         </p>
+        {project.url ? (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex min-h-11 items-center gap-2 font-display text-sm font-semibold text-blue"
+          >
+            {projectsContent.liveLabel}
+            <ArrowUpRight size={16} aria-hidden="true" />
+            <span className="font-sans font-normal text-neutral">
+              {new URL(project.url).hostname}
+            </span>
+          </a>
+        ) : null}
+        {project.image ? (
+          <div className="relative mt-10 aspect-[2/1] overflow-hidden rounded-2xl border border-navy/8 bg-navy">
+            <Image
+              src={project.image}
+              alt={project.imageAlt ?? project.title}
+              fill
+              priority
+              className="object-cover object-top"
+              sizes="(max-width: 1152px) 100vw, 1152px"
+            />
+          </div>
+        ) : null}
         <div className="mt-12 grid gap-5">
           {blocks.map((block) => (
             <section

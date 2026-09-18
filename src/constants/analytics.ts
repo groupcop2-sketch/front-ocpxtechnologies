@@ -4,6 +4,7 @@ export const analyticsEvents = {
   ctaNavContact: "cta_nav_contact",
   ctaServiceContact: "cta_service_contact",
   ctaProjectView: "cta_project_view",
+  ctaProjectLive: "cta_project_live",
   ctaFinalContact: "cta_final_contact",
   contactFormSubmit: "contact_form_submit",
   whatsappClick: "whatsapp_click",
