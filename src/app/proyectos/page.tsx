@@ -9,9 +9,9 @@ import { routes } from "@/config/site";
 import { getBreadcrumbJsonLd, getWebPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Proyectos y casos de estudio",
+  title: "Casos de éxito",
   description:
-    "Casos de estudio de OCPX Technologies, incluyendo Futarix, plataforma web de liga virtual de fútbol.",
+    "Catálogo de proyectos desarrollados por OCPX Technologies: software, plataformas web y sistemas de operación.",
   alternates: { canonical: routes.projects },
 };
 
@@ -23,9 +23,9 @@ export default function ProjectsPage() {
       <JsonLd
         data={[
           getWebPageJsonLd({
-            title: "Proyectos y casos de estudio",
+            title: "Casos de éxito",
             description:
-              "Casos de estudio de OCPX Technologies, incluyendo Futarix, plataforma web de liga virtual de fútbol.",
+              "Catálogo de proyectos desarrollados por OCPX Technologies: software, plataformas web y sistemas de operación.",
             path: routes.projects,
           }),
           getBreadcrumbJsonLd([

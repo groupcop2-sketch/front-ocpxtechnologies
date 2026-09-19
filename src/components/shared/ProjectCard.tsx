@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/constants/projects";
+import { ProjectGallery } from "@/components/shared/ProjectGallery";
 import { projectsContent } from "@/constants/content";
 import { analyticsEvents } from "@/constants/analytics";
 import { routes } from "@/config/site";
@@ -28,16 +28,8 @@ export function ProjectCard({
           : "border-navy/8 hover:-translate-y-0.5 hover:border-blue/35 hover:shadow-[0_16px_40px_rgb(7_21_47_/_0.08)]",
       )}
     >
-      {project.image ? (
-        <div className="relative aspect-[2/1] overflow-hidden bg-navy">
-          <Image
-            src={project.image}
-            alt={project.imageAlt ?? project.title}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 1024px) 100vw, 560px"
-          />
-        </div>
+      {project.images.length > 0 ? (
+        <ProjectGallery images={project.images} title={project.title} />
       ) : null}
       <div className="flex flex-1 flex-col p-6 md:p-8">
         <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-blue">
