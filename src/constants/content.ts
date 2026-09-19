@@ -173,13 +173,15 @@ export const contactContent = {
 
 export const projectsContent = {
   eyebrow: "Proyectos",
-  title: "Casos de estudio",
-  lead: "Una selección de soluciones publicadas. Solo incluimos información verificable: sin métricas, testimonios ni resultados inventados.",
+  title: "Casos de éxito",
+  lead: "Catálogo de soluciones que hemos desarrollado. Iremos publicando cada proyecto a medida que esté listo para mostrarse.",
   placeholderNote:
-    "Los siguientes bloques muestran la estructura con la que presentaremos cada caso. No representan clientes reales.",
-  liveLabel: "Ver proyecto",
-  caseLabel: "Ver caso",
-  emptyCta: "Hablemos de un caso similar al tuyo",
+    "Los siguientes bloques muestran la estructura con la que presentaremos cada proyecto. No representan clientes reales.",
+  liveLabel: "Abrir proyecto",
+  caseLabel: "Ver detalle",
+  emptyCta: "¿Tienes un proyecto similar? Hablemos",
+  galleryPrev: "Imagen anterior",
+  galleryNext: "Imagen siguiente",
 } as const;
 
 export const footerContent = {

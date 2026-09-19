@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { CtaLink } from "@/components/shared/CtaLink";
-import { getProjectBySlug, projects } from "@/constants/projects";
+import { ProjectGallery } from "@/components/shared/ProjectGallery";
+import { getProjectBySlug, getProjectCover, projects } from "@/constants/projects";
 import { cta, projectsContent } from "@/constants/content";
 import { routes } from "@/config/site";
 import { getBreadcrumbJsonLd, getWebPageJsonLd } from "@/lib/seo";
@@ -29,14 +29,16 @@ export async function generateMetadata({
     return { title: "Proyecto no encontrado" };
   }
 
+  const cover = getProjectCover(project);
+
   return {
     title: project.title,
     description: project.summary,
     robots: project.isPlaceholder ? { index: false, follow: true } : undefined,
     alternates: { canonical: routes.project(project.slug) },
-    openGraph: project.image
+    openGraph: cover
       ? {
-          images: [{ url: project.image, alt: project.imageAlt ?? project.title }],
+          images: [{ url: cover.src, alt: cover.alt }],
         }
       : undefined,
   };
@@ -103,15 +105,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </span>
           </a>
         ) : null}
-        {project.image ? (
-          <div className="relative mt-10 aspect-[2/1] overflow-hidden rounded-2xl border border-navy/8 bg-navy">
-            <Image
-              src={project.image}
-              alt={project.imageAlt ?? project.title}
-              fill
+        {project.images.length > 0 ? (
+          <div className="mt-10">
+            <ProjectGallery
+              images={project.images}
+              title={project.title}
+              variant="page"
               priority
-              className="object-cover object-top"
-              sizes="(max-width: 1152px) 100vw, 1152px"
             />
           </div>
         ) : null}
