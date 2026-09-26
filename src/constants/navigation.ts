@@ -8,6 +8,7 @@ export type NavItem = {
 export const primaryNav: readonly NavItem[] = [
   { label: "Inicio", href: "/#inicio" },
   { label: "Nosotros", href: "/#nosotros" },
+  { label: "Equipo", href: "/#equipo" },
   { label: "Servicios", href: "/#servicios" },
   { label: "Soluciones", href: "/#soluciones" },
   { label: "Proyectos", href: "/#proyectos" },
@@ -17,6 +18,7 @@ export const primaryNav: readonly NavItem[] = [
 export const footerNav: readonly NavItem[] = [
   { label: "Inicio", href: routes.home },
   { label: "Nosotros", href: "/#nosotros" },
+  { label: "Equipo", href: "/#equipo" },
   { label: "Servicios", href: "/#servicios" },
   { label: "Proyectos", href: routes.projects },
   { label: "Contacto", href: "/#contacto" },

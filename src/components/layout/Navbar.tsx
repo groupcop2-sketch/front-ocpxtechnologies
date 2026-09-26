@@ -49,7 +49,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Logo variant="lockup" onDark priority />
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-5 xl:gap-8 lg:flex" aria-label="Principal">
           {primaryNav.map((item) => (
             <a
               key={item.href}

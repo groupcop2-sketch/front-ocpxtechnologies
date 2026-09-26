@@ -5,6 +5,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Process } from "@/components/sections/Process";
 import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
+import { Team } from "@/components/sections/Team";
 import { Technologies } from "@/components/sections/Technologies";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ValueProposition } from "@/components/sections/ValueProposition";
@@ -31,6 +32,7 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <About />
+      <Team />
       <Services />
       <ValueProposition />
       <Process />

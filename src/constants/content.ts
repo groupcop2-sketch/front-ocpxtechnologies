@@ -58,6 +58,12 @@ export const aboutContent = {
   },
 } as const;
 
+export const teamContent = {
+  eyebrow: "Equipo",
+  title: "Las personas detrás de OCPX",
+  lead: "Un equipo de ingeniería que combina desarrollo, datos, seguridad e infraestructura para construir soluciones que se puedan operar y sostener.",
+} as const;
+
 export const valuesContent = {
   eyebrow: "Principios",
   title: "La forma en que trabajamos",
